@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta de Parceria Estratégica | Top Line</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .highlight-blue {
+            color: #2563eb;
+        }
+        /* Custom slider styles */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: #2563eb;
+            cursor: pointer;
+            border-radius: 50%;
+            margin-top: -8px;
+        }
+        input[type=range]::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            background: #2563eb;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .selected-model {
+            border-color: #2563eb;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            transform: scale(1.02);
+        }
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-800">
+                Parceria Estratégica <span class="highlight-blue">Top Line</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#modelos" class="text-gray-600 hover:text-blue-600 transition">Modelos</a>
+                <a href="#analise" class="text-gray-600 hover:text-blue-600 transition">Análise de Custo</a>
+                <a href="#responsabilidades" class="text-gray-600 hover:text-blue-600 transition">Responsabilidades</a>
+                <a href="#proximos-passos" class="text-gray-600 hover:text-blue-600 transition">Próximos Passos</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg py-20 px-6">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Proposta de Parceria Estratégica em Marketplaces</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">Uma proposta para destravar o potencial de crescimento da Top Line, combinando sua excelência em produtos com nossa expertise em performance digital.</p>
+        </div>
+    </section>
+
+    <!-- Alinhamento Section -->
+    <section id="alinhamento" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">Alinhamento de Expectativas</h2>
+                <p class="text-gray-600 mt-2">Definições importantes para uma parceria de sucesso e transparência.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="font-semibold text-lg mb-2">Visão de Parceria</h3>
+                    <p class="text-gray-600">Nosso objetivo é ser um parceiro de crescimento de longo prazo, em um modelo "ganha-ganha", onde nosso sucesso está diretamente atrelado ao seu.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="font-semibold text-lg mb-2">Base de Cálculo</h3>
+                    <p class="text-gray-600">A comissão será aplicada sobre o crescimento do faturamento, usando como base a média simples do faturamento bruto dos últimos 12 meses antes do contrato.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="font-semibold text-lg mb-2">Horizonte de Resultados</h3>
+                    <p class="text-gray-600">O trabalho de reestruturação é profundo. Esperamos que os resultados mais expressivos comecem a se consolidar em um período de 6 a 12 meses.</p>
+                </div>
+                 <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="font-semibold text-lg mb-2">Nota Fiscal de Serviço</h3>
+                    <p class="text-gray-600">Todos os pagamentos de comissão e setup serão acompanhados da respectiva Nota Fiscal de Serviço (NFS-e), garantindo total transparência fiscal.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="font-semibold text-lg mb-2">Escopo da Gestão</h3>
+                    <p class="text-gray-600">Esta proposta cobre a gestão nos principais Marketplaces, a serem definidos em nossas reuniões estratégicas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Fases da Parceria -->
+    <section class="py-16">
+         <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">Fases da Nossa Parceria</h2>
+                <p class="text-gray-600 mt-2">Nossa metodologia é estruturada para garantir uma implementação organizada e resultados consistentes.</p>
+            </div>
+             <div class="max-w-4xl mx-auto">
+                <div class="p-6 bg-white rounded-lg shadow-md mb-6">
+                    <h3 class="text-xl font-bold text-blue-600 mb-2">Fase 1: Diagnóstico e Planejamento Estratégico</h3>
+                    <p class="text-gray-600">Criamos a fundação para o crescimento com uma imersão completa no seu negócio, análise aprofundada de concorrência e posicionamento de mercado, definição de Curva ABC de produtos para o online e a elaboração de um plano de ação detalhado com KPIs claros.</p>
+                </div>
+                 <div class="p-6 bg-white rounded-lg shadow-md mb-6">
+                    <h3 class="text-xl font-bold text-blue-600 mb-2">Fase 2: Reestruturação e Otimização</h3>
+                    <p class="text-gray-600">Preparamos a operação para escalar com máxima eficiência através de um trabalho intensivo de otimização de todo o catálogo de até 600 SKUs (títulos, fotos, descrições, fichas técnicas) e a configuração e estruturação inicial das campanhas de publicidade (Ads).</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-blue-600 mb-2">Fase 3: Gestão Contínua e Aceleração</h3>
+                    <p class="text-gray-600">Gerenciamos o dia a dia e aceleramos os resultados de forma consistente através de acompanhamento diário da performance, gestão e otimização contínua das campanhas de Ads, análise de dados para identificar oportunidades e reuniões periódicas de alinhamento estratégico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modelos de Parceria -->
+    <section id="modelos" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">Modelos de Parceria Estratégica</h2>
+                <p class="text-gray-600 mt-2">Escolha o modelo que melhor se alinha aos seus objetivos de negócio.</p>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Modelo 1 -->
+                <div id="model-1" class="border-2 border-gray-200 rounded-lg p-8 flex flex-col">
+                    <h3 class="text-2xl font-bold mb-4">Modelo 1: Consultoria</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">Ideal para organizar a operação e criar uma base sólida para a equipe interna gerenciar. Trata-se de um projeto puramente consultivo, sem envolvimento na execução da operação do dia a dia.</p>
+                    <div class="mb-6">
+                        <p class="font-semibold">Fases Inclusas: <span class="font-normal">1 e 2</span></p>
+                        <p class="font-semibold">Duração: <span class="font-normal">3 meses ativos (reuniões quinzenais/semanais) + 1 mês passivo (suporte via WhatsApp).</span></p>
+                    </div>
+                    <div class="text-3xl font-bold mb-6">R$ 7.500,00 <span class="text-lg font-normal">/ projeto</span></div>
+                     <div class="w-full mt-auto text-center bg-gray-100 text-gray-500 font-semibold py-3 rounded-lg">
+                        Projeto de Valor Fixo
+                    </div>
+                </div>
+                <!-- Modelo 2 -->
+                <div id="model-2" class="border-2 border-gray-200 rounded-lg p-8 flex flex-col transition duration-300 ease-in-out">
+                    <h3 class="text-2xl font-bold mb-4">Modelo 2: Assessoria + Mentoria</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">Ideal para acelerar o crescimento com gestão especialista, ao mesmo tempo em que mentora um profissional interno para o futuro, criando um ativo de conhecimento para a empresa.</p>
+                    <div class="mb-6">
+                        <p class="font-semibold">Fases Inclusas: <span class="font-normal">1, 2 e 3</span></p>
+                        <p class="font-semibold">Duração Mínima: <span class="font-normal">24 meses</span></p>
+                    </div>
+                    <div class="text-xl font-bold mb-6">
+                        <p>Setup: R$ 5.000,00 (em 3x)</p>
+                        <p class="mt-2">Mensal: R$ 3.000,00 + 6% sobre o crescimento</p>
+                    </div>
+                    <button onclick="selectModel(2)" class="w-full mt-auto bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition">Simular Custos</button>
+                </div>
+                <!-- Modelo 3 -->
+                <div id="model-3" class="border-2 border-gray-200 rounded-lg p-8 flex flex-col transition duration-300 ease-in-out">
+                    <h3 class="text-2xl font-bold mb-4">Modelo 3: Assessoria Full Service</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">Ideal para terceirizar 100% da gestão, com remuneração focada exclusivamente na performance e no crescimento, em um modelo de risco zero para o cliente.</p>
+                     <div class="mb-6">
+                        <p class="font-semibold">Fases Inclusas: <span class="font-normal">1, 2 e 3</span></p>
+                        <p class="font-semibold">Duração Mínima: <span class="font-normal">18 meses</span></p>
+                    </div>
+                    <div class="text-xl font-bold mb-6">
+                        <p>Setup: R$ 7.500,00 (em 3x)</p>
+                        <p class="mt-2">Mensal: 10% sobre o crescimento</p>
+                    </div>
+                    <button onclick="selectModel(3)" class="w-full mt-auto bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition">Simular Custos</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Análise de Custo Interativa -->
+    <section id="analise" class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">Análise de Custo Efetivo da Assessoria</h2>
+                <p class="text-gray-600 mt-2">Simule o custo da parceria com base no faturamento. Selecione um modelo acima para começar.</p>
+            </div>
+            <div id="calculator-section" class="bg-white p-8 rounded-lg shadow-md hidden">
+                <div class="mb-8">
+                    <label for="faturamento-slider" class="block font-semibold mb-2">Simule o Faturamento Mensal: <span id="faturamento-value" class="font-bold text-blue-600">R$ 50.000</span></label>
+                    <input type="range" id="faturamento-slider" min="50000" max="5000000" step="10000" value="50000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left" id="cost-table">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="p-4 font-semibold">Faturamento Mensal</th>
+                                <th class="p-4 font-semibold" id="col-total-recebido">Total Recebido</th>
+                                <th class="p-4 font-semibold">% Efetiva sobre Faturamento</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                 <div class="mt-4 text-sm text-gray-500 text-center">
+                    *Cálculos baseados em um faturamento inicial de R$ 50.000. O valor oficial será a média dos últimos 12 meses.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Matriz de Responsabilidades -->
+    <section id="responsabilidades" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">Matriz de Responsabilidades e Entregáveis (Modelos 2 e 3)</h2>
+                 <p class="text-gray-600 mt-2">Definindo papéis para uma colaboração eficiente e transparente.</p>
+            </div>
+            <div class="overflow-x-auto bg-white rounded-lg shadow-md">
+                 <table class="w-full text-left">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="p-4 font-semibold text-sm">ÁREA</th>
+                            <th class="p-4 font-semibold text-sm">ATIVIDADE / ENTREGÁVEL</th>
+                            <th class="p-4 font-semibold text-sm">RESPONSÁVEL (MODELO 2)</th>
+                            <th class="p-4 font-semibold text-sm">RESPONSÁVEL (MODELO 3)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y">
+                        <tr class="bg-gray-100"><td colspan="4" class="p-2 font-bold text-gray-600">ESTRATÉGIA E PLANEJAMENTO</td></tr>
+                        <tr>
+                            <td class="p-4"></td><td class="p-4">Definição da Estratégia Geral de Marketplaces</td><td class="p-4"><b>Assessoria</b> (lidera) com <b>Ponto Focal</b>.</td><td class="p-4"><b>Assessoria</b> (lidera) com <b>Cliente</b>.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4"></td><td class="p-4">Análise de Concorrência e Posicionamento</td><td class="p-4"><b>Assessoria</b></td><td class="p-4"><b>Assessoria</b></td>
+                        </tr>
+                         <tr class="bg-gray-100"><td colspan="4" class="p-2 font-bold text-gray-600">GESTÃO DE CATÁLOGO</td></tr>
+                        <tr>
+                            <td class="p-4"></td><td class="p-4">Criação e Otimização de Anúncios (Títulos, Descrições)</td><td class="p-4"><b>Assessoria</b> (define padrão) e <b>Ponto Focal</b> (executa).</td><td class="p-4"><b>Assessoria</b></td>
+                        </tr>
+                         <tr>
+                            <td class="p-4"></td><td class="p-4">Produção de Mídia (Fotos e Vídeos)</td><td class="p-4"><b>Cliente</b> (com direcionamento da Assessoria).</td><td class="p-4"><b>Cliente</b> (com direcionamento da Assessoria).</td>
+                        </tr>
+                         <tr class="bg-gray-100"><td colspan="4" class="p-2 font-bold text-gray-600">MARKETING E PERFORMANCE</td></tr>
+                         <tr>
+                            <td class="p-4"></td><td class="p-4">Criação e Gestão de Campanhas de Ads</td><td class="p-4"><b>Assessoria</b></td><td class="p-4"><b>Assessoria</b></td>
+                        </tr>
+                         <tr>
+                            <td class="p-4"></td><td class="p-4">Aprovação do Orçamento de Mídia</td><td class="p-4"><b>Cliente</b></td><td class="p-4"><b>Cliente</b></td>
+                        </tr>
+                         <tr class="bg-gray-100"><td colspan="4" class="p-2 font-bold text-gray-600">OPERAÇÕES DIÁRIAS</td></tr>
+                        <tr>
+                             <td class="p-4"></td><td class="p-4">Atendimento pré e pós venda</td><td class="p-4"><b>Ponto Focal</b> (com templates da Assessoria).</td><td class="p-4"><b>Assessoria</b></td>
+                        </tr>
+                        <tr>
+                             <td class="p-4"></td><td class="p-4 font-semibold">Atualização de Estoque (ERP)</td><td class="p-4 text-red-600 font-bold">CLIENTE (CRÍTICO)</td><td class="p-4 text-red-600 font-bold">CLIENTE (CRÍTICO)</td>
+                        </tr>
+                         <tr>
+                             <td class="p-4"></td><td class="p-4 font-semibold">Embalagem e Expedição dos Pedidos</td><td class="p-4 text-red-600 font-bold">CLIENTE (100%)</td><td class="p-4 text-red-600 font-bold">CLIENTE (100%)</td>
+                        </tr>
+                         <tr class="bg-gray-100"><td colspan="4" class="p-2 font-bold text-gray-600">ANÁLISE E GESTÃO</td></tr>
+                         <tr>
+                            <td class="p-4"></td><td class="p-4">Monitoramento da Saúde da Conta (Reputação)</td><td class="p-4"><b>Assessoria</b></td><td class="p-4"><b>Assessoria</b></td>
+                        </tr>
+                          <tr>
+                            <td class="p-4"></td><td class="p-4">Elaboração de Relatórios de Performance</td><td class="p-4"><b>Assessoria</b></td><td class="p-4"><b>Assessoria</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fatores Críticos e Cláusulas -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold">Bases da Parceria: Pré-requisitos e Cláusulas</h2>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Fatores Críticos de Sucesso</h3>
+                    <div class="space-y-4 text-gray-600">
+                        <p><b>Sistemas:</b> Manter o ERP (Bling) funcional e sempre atualizado é obrigatório para o controle de estoque e emissão de notas fiscais.</p>
+                        <p><b>Logística:</b> Garantir estoque constante de insumos para expedição e estrutura para programas como o Fullfilment é essencial.</p>
+                        <p><b>Equipe de Expedição:</b> Manter uma equipe dimensionada para o volume, garantindo que todos os pedidos sejam despachados rigorosamente no prazo.</p>
+                        <p><b>Escalabilidade da Equipe (Modelo 2):</b> Comprometimento em expandir a equipe interna conforme o crescimento. O quadro abaixo é uma estimativa a ser ajustada em comum acordo:</p>
+                        <div class="overflow-x-auto pt-4">
+                            <table class="w-full text-left text-sm">
+                                <thead class="bg-gray-100">
+                                    <tr>
+                                        <th class="p-2 font-semibold">Faturamento Mensal</th>
+                                        <th class="p-2 font-semibold">Posições-Chave Sugeridas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="p-2 border-b">Até R$ 250 mil</td><td class="p-2 border-b">1 Ponto Focal / Gestor de E-commerce</td></tr>
+                                    <tr><td class="p-2 border-b">R$ 250 mil - R$ 500 mil</td><td class="p-2 border-b">1 de Cadastro + 1 de Atendimento/SAC</td></tr>
+                                    <tr><td class="p-2">R$ 500 mil - R$ 1 milhão</td><td class="p-2">Equipe de 3 a 4 (Cadastro, SAC, Designer, Gestor)</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                 <div>
+                    <h3 class="text-2xl font-bold mb-6">Cláusulas Importantes de Rescisão</h3>
+                     <div class="space-y-4">
+                         <details class="bg-white p-4 rounded-lg cursor-pointer">
+                             <summary class="font-semibold flex justify-between items-center">Multa por Rescisão (pelo Cliente) <span>+</span></summary>
+                             <p class="mt-2 text-gray-600">Em caso de rescisão sem justa causa antes do término do contrato, incidirá uma multa de 50% sobre a soma dos valores restantes. O valor mensal para cálculo será a parte fixa (apenas no Modelo 2) somada à média da comissão dos últimos 3 meses.</p>
+                         </details>
+                         <details class="bg-white p-4 rounded-lg cursor-pointer">
+                             <summary class="font-semibold flex justify-between items-center">Rescisão por Justa Causa (Qualquer Parte) <span>+</span></summary>
+                             <p class="mt-2 text-gray-600">A Assessoria ou o Cliente poderão notificar a outra parte caso identifiquem uma falha recorrente em qualquer um dos 'Fatores Críticos de Sucesso' (ex: atrasos contínuos na expedição, estoque desatualizado, não adequação da equipe, falta de resposta da assessoria, falta de gestão da conta, aplicar preços fora da competitividade de mercado sem alinhamento prévio). Após a notificação, a parte notificada terá 30 dias para sanar o problema. Caso a falha persista, a parte notificante terá o direito de rescindir o contrato imediatamente, sem multa ou ônus.</p>
+                         </details>
+                         <details class="bg-white p-4 rounded-lg cursor-pointer">
+                             <summary class="font-semibold flex justify-between items-center">Rescisão por Inadimplência (pela Assessoria) <span>+</span></summary>
+                             <p class="mt-2 text-gray-600">O não pagamento de qualquer valor devido por mais de 15 dias após o vencimento permitirá a suspensão dos serviços. Caso a inadimplência persista por mais 15 dias após a notificação, o contrato poderá ser rescindido, cabendo ao Cliente o pagamento dos valores em aberto.</p>
+                         </details>
+                         <details class="bg-white p-4 rounded-lg cursor-pointer">
+                             <summary class="font-semibold flex justify-between items-center">Rescisão Sem Justa Causa (pela Assessoria) <span>+</span></summary>
+                             <p class="mt-2 text-gray-600">A Assessoria poderá rescindir o presente contrato sem justa causa, desde que notifique o Cliente com um aviso prévio de, no mínimo, 60 (sessenta) dias. Durante o período de aviso prévio, todos os serviços continuarão a ser prestados e remunerados normalmente.</p>
+                         </details>
+                     </div>
+                     <div class="mt-6 text-sm text-gray-500 italic">
+                        <p>*Em todos os cenários de rescisão, todos os ativos digitais criados durante a parceria (anúncios, configurações, catálogos, fotos e descrições) permanecerão como propriedade integral da Top Line, desde que todas as cláusulas e obrigações financeiras do contrato tenham sido devidamente cumpridas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Próximos Passos -->
+    <section id="proximos-passos" class="py-20 bg-blue-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Prontos para Começar?</h2>
+            <p class="text-blue-100 max-w-2xl mx-auto mb-8">Estamos à disposição para discutir estes modelos e construir uma parceria de sucesso. Vamos agendar uma conversa para definirmos os próximos passos.</p>
+            <div class="space-y-2">
+                <p class="font-semibold">1. Discussão e escolha do modelo de parceria.</p>
+                <p class="font-semibold">2. Cálculo da base de faturamento oficial.</p>
+                <p class="font-semibold">3. Elaboração e assinatura do contrato.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <p class="font-bold">C. G. D AGOSTINI SERVICOS ADMINISTRATIVOS LTDA</p>
+            <p>CNPJ: 50.786.191/0001-37</p>
+            <p class="mt-2">&copy; 2025 - Proposta de Parceria Estratégica</p>
+        </div>
+    </footer>
+
+    <script>
+        let selectedModel = null;
+        const baseFaturamento = 50000;
+
+        const formatCurrency = (value) => {
+            return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
+        };
+
+        function selectModel(modelNumber) {
+            if (modelNumber === 1) return;
+            
+            selectedModel = modelNumber;
+
+            document.getElementById('model-2').classList.remove('selected-model');
+            document.getElementById('model-3').classList.remove('selected-model');
+
+            const selectedElement = document.getElementById(`model-${modelNumber}`);
+            selectedElement.classList.add('selected-model');
+            
+            document.getElementById('calculator-section').classList.remove('hidden');
+            const slider = document.getElementById('faturamento-slider');
+            slider.value = 50000;
+            
+            updateCalculator();
+            
+            document.getElementById('analise').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function updateCalculator() {
+            if (!selectedModel) return;
+
+            const slider = document.getElementById('faturamento-slider');
+            const faturamento = parseInt(slider.value);
+            document.getElementById('faturamento-value').textContent = formatCurrency(faturamento);
+
+            const tableBody = document.getElementById('cost-table').getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = '';
+
+            const faturamentoPoints = [50000, 100000, 150000, 200000, 300000, 500000, 750000, 1000000, 2000000, 5000000];
+            if (!faturamentoPoints.includes(faturamento)) {
+                faturamentoPoints.push(faturamento);
+                faturamentoPoints.sort((a, b) => a - b);
+            }
+
+            let colHeader = document.getElementById('col-total-recebido');
+
+            faturamentoPoints.forEach(fat => {
+                let totalRecebido = 0;
+                let percentualEfetivo = 0;
+                
+                if (selectedModel === 2) {
+                    colHeader.textContent = "Fixo+Comissão (Total)";
+                    const comissao = Math.max(0, fat - baseFaturamento) * 0.06;
+                    totalRecebido = 3000 + comissao;
+                    percentualEfetivo = fat > 0 ? (totalRecebido / fat) * 100 : 0;
+                } else if (selectedModel === 3) {
+                     colHeader.textContent = "Comissão (Total)";
+                    totalRecebido = Math.max(0, fat - baseFaturamento) * 0.10;
+                    percentualEfetivo = fat > 0 ? (totalRecebido / fat) * 100 : 0;
+                }
+
+                const row = tableBody.insertRow();
+                if (fat === faturamento) {
+                    row.className = 'bg-blue-100 font-bold';
+                }
+
+                row.innerHTML = `
+                    <td class="p-4">${formatCurrency(fat)}</td>
+                    <td class="p-4">${formatCurrency(totalRecebido)}</td>
+                    <td class="p-4">${percentualEfetivo.toFixed(2)}%</td>
+                `;
+            });
+        }
+        
+        document.getElementById('faturamento-slider').addEventListener('input', updateCalculator);
+    </script>
+</body>
+</html>
+
