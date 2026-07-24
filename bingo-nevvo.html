@@ -123,6 +123,12 @@ body.fs #tab-sorteio{height:100vh}
   border-radius:1.2vh;padding:.9vh 1.4vw;animation:cheiapulse 1.2s ease-in-out infinite;
 }
 #cheia-alert .sn{font-family:var(--mono);letter-spacing:.04em}
+#cheia-alert button{
+  background:var(--hl);color:#10130a;border:0;border-radius:.8vh;cursor:pointer;
+  font-family:var(--disp);font-weight:900;font-size:2.2vh;letter-spacing:.05em;
+  padding:.4vh 1.1vw;margin-left:.7vw;vertical-align:middle;
+}
+#cheia-alert button:hover{filter:brightness(1.15)}
 @keyframes cheiapulse{0%,100%{opacity:1}50%{opacity:.55}}
 @media (prefers-reduced-motion:reduce){#cheia-alert{animation:none}}
 
@@ -343,7 +349,7 @@ body.fs #tab-sorteio{height:100vh}
           <label for="em-jogo" style="font-weight:700">Cartelas em jogo:</label>
           <input type="number" id="em-jogo" min="0" max="500" value="0" style="width:110px;border:1px solid var(--light-line);border-radius:8px;padding:9px 12px;font-size:16px;font-weight:700;text-align:center">
         </div>
-        <p class="hint">Preenchido automaticamente ao gerar as cartelas. Na fase <b>Cartela Cheia</b>, o telão verifica a cada bola se alguma cartela de NV-0001 até esse número já completou, e avisa o operador. 0 = verificação desativada.</p>
+        <p class="hint">Preenchido automaticamente ao gerar as cartelas. Na fase <b>Cartela Cheia</b>, o telão verifica a cada bola se alguma cartela de NV-0001 até esse número já completou e mostra um aviso — <b>sem revelar o serial</b>: ele só aparece se o operador clicar em “Mostrar”. Sem clicar, o sorteio segue normal. 0 = verificação desativada.</p>
       </div>
     </div>
   </section>
@@ -495,6 +501,7 @@ const pool = Array.from({length:60}, (_,i)=>({ numero:i+1, sku:null }));
 const sorteio = { ordem:null, indiceAtual:0, fase:'cantos' };
 const cfg = { fast:false, sound:true, panelVisible:true };
 let cartelasEmJogo = 0; // NV-0001..NV-XXXX consideradas na verificação automática de cartela cheia (0 = off)
+let cheiaRevealed = false; // operador clicou em "Mostrar" para revelar o serial da cartela cheia
 let animRunning = false;
 
 const skuOf = n => pool[n-1].sku;
@@ -949,14 +956,27 @@ function renderSorteioStatic(){
     }
   }
   // alerta de cartela cheia (só na fase cheia, só cartelas em jogo)
+  // Sem revelar o serial: o operador decide clicando em "Mostrar"; sem clicar, o jogo segue normal.
   const alertEl = $('#cheia-alert');
   const winners = sorteio.fase === 'cheia' ? cheiaWinners() : [];
   if (winners.length){
-    const w = winners[0];
-    alertEl.innerHTML = `🏆 CARTELA CHEIA: <span class="sn">${w.serial}</span> (bola ${w.ball})` +
-      (winners.length > 1 ? ` · +${winners.length-1} outra${winners.length>2?'s':''}` : '');
+    if (cheiaRevealed){
+      const w = winners[0];
+      alertEl.innerHTML = `🏆 CARTELA CHEIA: <span class="sn">${w.serial}</span> (bola ${w.ball})` +
+        (winners.length > 1 ? ` · +${winners.length-1} outra${winners.length>2?'s':''}` : '');
+    } else {
+      alertEl.innerHTML = `🏆 CARTELA CHEIA COMPLETADA${winners.length>1?` (${winners.length})`:''} ` +
+        `<button id="btn-cheia-reveal">Mostrar</button>`;
+      alertEl.querySelector('#btn-cheia-reveal').addEventListener('click', ()=>{
+        cheiaRevealed = true;
+        renderSorteioStatic();
+      });
+    }
     alertEl.hidden = false;
-  } else alertEl.hidden = true;
+  } else {
+    alertEl.hidden = true;
+    cheiaRevealed = false;
+  }
   // cápsula (estado estático)
   capsula.classList.remove('spinning','fim');
   capsula.style.transform = '';
