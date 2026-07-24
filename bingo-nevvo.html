@@ -116,6 +116,15 @@ body.fs #tab-sorteio{height:100vh}
 #bola-counter b{color:#e8ecf3}
 #fase-display{font-family:var(--disp);font-weight:900;font-size:3.4vh;letter-spacing:.06em;color:var(--txt-dim)}
 #fase-display b{color:var(--hl)}
+.tv-top-right{display:flex;flex-direction:column;align-items:flex-end;gap:.8vh}
+#cheia-alert{
+  font-family:var(--disp);font-weight:900;font-size:2.6vh;letter-spacing:.05em;
+  color:var(--hl);background:var(--hl-soft);border:.3vh solid var(--hl);
+  border-radius:1.2vh;padding:.9vh 1.4vw;animation:cheiapulse 1.2s ease-in-out infinite;
+}
+#cheia-alert .sn{font-family:var(--mono);letter-spacing:.04em}
+@keyframes cheiapulse{0%,100%{opacity:1}50%{opacity:.55}}
+@media (prefers-reduced-motion:reduce){#cheia-alert{animation:none}}
 
 .tv-mid{flex:1;display:flex;align-items:stretch;gap:1.6vw;padding:1.4vh 2.4vw;min-height:0}
 
@@ -330,6 +339,11 @@ body.fs #tab-sorteio{height:100vh}
         </div>
         <p class="hint">Dica: imprima ~10% a mais que o nº de participantes para cobrir extravios. A4 retrato, 2 cartelas por página, P&amp;B. No diálogo do Chrome, use “Salvar como PDF” se preferir.</p>
         <p class="hint" id="print-summary" style="margin-top:10px"></p>
+        <div class="row-actions" style="margin-top:16px">
+          <label for="em-jogo" style="font-weight:700">Cartelas em jogo:</label>
+          <input type="number" id="em-jogo" min="0" max="500" value="0" style="width:110px;border:1px solid var(--light-line);border-radius:8px;padding:9px 12px;font-size:16px;font-weight:700;text-align:center">
+        </div>
+        <p class="hint">Preenchido automaticamente ao gerar as cartelas. Na fase <b>Cartela Cheia</b>, o telão verifica a cada bola se alguma cartela de NV-0001 até esse número já completou, e avisa o operador. 0 = verificação desativada.</p>
       </div>
     </div>
   </section>
@@ -338,7 +352,10 @@ body.fs #tab-sorteio{height:100vh}
   <section class="tab" id="tab-sorteio">
     <div class="tv-top">
       <div id="bola-counter">BOLA <b>0</b>/60</div>
-      <div id="fase-display">VALENDO: <b>4 CANTOS</b></div>
+      <div class="tv-top-right">
+        <div id="fase-display">VALENDO: <b>4 CANTOS</b></div>
+        <div id="cheia-alert" hidden></div>
+      </div>
     </div>
     <div class="tv-mid">
       <div id="capsula-wrap">
@@ -477,6 +494,7 @@ const el = (tag, cls, txt) => { const e=document.createElement(tag); if(cls) e.c
 const pool = Array.from({length:60}, (_,i)=>({ numero:i+1, sku:null }));
 const sorteio = { ordem:null, indiceAtual:0, fase:'cantos' };
 const cfg = { fast:false, sound:true, panelVisible:true };
+let cartelasEmJogo = 0; // NV-0001..NV-XXXX consideradas na verificação automática de cartela cheia (0 = off)
 let animRunning = false;
 
 const skuOf = n => pool[n-1].sku;
@@ -544,6 +562,41 @@ function cardGrid(serial){
   }
   grid[2][2] = FREE;
   return grid;
+}
+
+/* ============================= CHEIA AUTOMÁTICA ============================= */
+const cardNumbersCache = new Map(); // serial -> 24 números da cartela (sem o centro livre)
+function cardNumbers(serial){
+  let nums = cardNumbersCache.get(serial);
+  if (!nums){
+    nums = cardGrid(serial).flat().filter(n => n !== FREE);
+    cardNumbersCache.set(serial, nums);
+  }
+  return nums;
+}
+// Varre NV-0001..NV-(cartelasEmJogo) e devolve as já cheias, ordenadas pela bola de conclusão.
+function cheiaWinners(){
+  if (!cartelasEmJogo || !sorteio.ordem || sorteio.indiceAtual === 0) return [];
+  const pos = new Map();
+  for(let i=0;i<sorteio.indiceAtual;i++) pos.set(sorteio.ordem[i], i+1);
+  const winners = [];
+  for(let i=1;i<=cartelasEmJogo;i++){
+    const serial = serialFor(i);
+    let ball = 0, ok = true;
+    for(const n of cardNumbers(serial)){
+      const p = pos.get(n);
+      if (p === undefined){ ok = false; break; }
+      if (p > ball) ball = p;
+    }
+    if (ok) winners.push({ serial, ball });
+  }
+  winners.sort((a,b) => a.ball - b.ball || (a.serial < b.serial ? -1 : 1));
+  return winners;
+}
+function setEmJogo(qtd){
+  cartelasEmJogo = Number.isInteger(qtd) && qtd > 0 ? Math.min(qtd, 500) : 0;
+  $('#em-jogo').value = cartelasEmJogo;
+  renderSorteioStatic();
 }
 
 /* ============================= PRÊMIOS ============================= */
@@ -830,7 +883,8 @@ function generateAndPrint(){
   }
   const n = buildPrintArea(qtd);
   $('#print-summary').textContent =
-    `Geradas ${n} cartelas (${serialFor(1)} … ${serialFor(n)}) em ${Math.ceil(n/2)} páginas A4.`;
+    `Geradas ${n} cartelas (${serialFor(1)} … ${serialFor(n)}) em ${Math.ceil(n/2)} páginas A4 — registradas como cartelas em jogo.`;
+  setEmJogo(n);
   window.print();
 }
 
@@ -894,6 +948,15 @@ function renderSorteioStatic(){
       chips.append(chip);
     }
   }
+  // alerta de cartela cheia (só na fase cheia, só cartelas em jogo)
+  const alertEl = $('#cheia-alert');
+  const winners = sorteio.fase === 'cheia' ? cheiaWinners() : [];
+  if (winners.length){
+    const w = winners[0];
+    alertEl.innerHTML = `🏆 CARTELA CHEIA: <span class="sn">${w.serial}</span> (bola ${w.ball})` +
+      (winners.length > 1 ? ` · +${winners.length-1} outra${winners.length>2?'s':''}` : '');
+    alertEl.hidden = false;
+  } else alertEl.hidden = true;
   // cápsula (estado estático)
   capsula.classList.remove('spinning','fim');
   capsula.style.transform = '';
@@ -1037,6 +1100,8 @@ function zerarTudo(){
   sorteio.ordem = null;
   sorteio.indiceAtual = 0;
   sorteio.fase = 'cantos';
+  cartelasEmJogo = 0;
+  $('#em-jogo').value = 0;
   $('#sel-fase').value = 'cantos';
   buildSkuTable();
   renderSorteioStatic();
@@ -1192,6 +1257,10 @@ $('#zerar-input').addEventListener('keydown', e=>{ if(e.key==='Enter') $('#btn-z
 
 /* Cartelas */
 $('#btn-print').addEventListener('click', generateAndPrint);
+$('#em-jogo').addEventListener('change', e=>{
+  const v = parseInt(e.target.value, 10);
+  setEmJogo(Number.isInteger(v) ? v : 0);
+});
 
 /* Sorteio */
 $('#btn-draw').addEventListener('click', startDraw);
